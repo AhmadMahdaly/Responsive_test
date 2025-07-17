@@ -5,9 +5,9 @@ abstract class SizeConfig {
   static late double screenWidth;
   static late double screenHeight;
   static late double _safeAreaHorizontal;
-  static late double _safeAreaVertical;
   static late double _safeBlockHorizontal;
-  static late double _safeBlockVertical;
+  // static late double _safeAreaVertical;
+  // static late double _safeBlockVertical;
 
   static void init(BuildContext context) {
     _mediaQueryData = MediaQuery.of(context);
@@ -17,11 +17,10 @@ abstract class SizeConfig {
 
     _safeAreaHorizontal =
         _mediaQueryData.padding.left + _mediaQueryData.padding.right;
-    _safeAreaVertical =
-        _mediaQueryData.padding.top + _mediaQueryData.padding.bottom;
 
     _safeBlockHorizontal = (screenWidth - _safeAreaHorizontal);
-    _safeBlockVertical = (screenHeight - _safeAreaVertical);
+    // _safeAreaVertical = _mediaQueryData.padding.top + _mediaQueryData.padding.bottom;
+    // _safeBlockVertical = (screenHeight - _safeAreaVertical);
   }
 
   static double getWidth(double width) {
@@ -29,7 +28,7 @@ abstract class SizeConfig {
   }
 
   static double getHeight(double height) {
-    return _safeBlockVertical * (height / 844);
+    return screenWidth * (height / 844);
   }
 
   static double getFontSize(double size) {
