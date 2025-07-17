@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+///=> Design screen size:
+final Size deviceSize = Size(393, 844);
+
 abstract class SizeConfig {
   static late MediaQueryData _mediaQueryData;
   static late double screenWidth;
@@ -24,11 +27,11 @@ abstract class SizeConfig {
   }
 
   static double getWidth(double width) {
-    return screenWidth * (width / 393);
+    return screenWidth * (width / deviceSize.width);
   }
 
   static double getHeight(double height) {
-    return screenWidth * (height / 844);
+    return screenWidth * (height / deviceSize.height);
   }
 
   static double getFontSize(double size) {
